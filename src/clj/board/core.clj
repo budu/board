@@ -32,4 +32,5 @@
     (board-handler channel)
     (enqueue channel (wrapped-sync-app request))))
 
-(start-http-server app {:port 8080 :websocket true})
+(defn -main [& args]
+  (start-http-server app {:port 8080 :websocket true}))

@@ -12,4 +12,5 @@
               [{:source-path "src/cljs"
                 :compiler {:output-to "resources/public/js/app.js"
                            :optimizations :advanced}}]}
-  :ring {:handler board.core/app})
+  :ring {:handler board.core/app}
+  :main board.core)
