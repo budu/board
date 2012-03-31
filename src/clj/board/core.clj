@@ -8,7 +8,8 @@
   (html5
    [:head]
    [:body
-    [:p "OK"]
+    [:canvas#board {:width 600 :height 400}
+     "Use a real brower please!"]
     (include-js "/js/app.js")]))
 
 (defn sync-app [request]
