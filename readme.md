@@ -1,13 +1,10 @@
 # Board
 
-Experimental drawing board.
-
-## Usage
-
-FIXME: write
+This is a naive implementation of an online whiteboard in under a
+hundred lines of Clojure and ClojureScript code.
 
 ## License
 
 Copyright (C) 2012 Nicolas Buduroi
 
-Distributed under the Eclipse Public License, the same as Clojure.
+This project rocks and uses MIT-LICENSE!
