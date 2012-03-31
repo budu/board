@@ -3,11 +3,10 @@
 
 (def socket (new js/window.WebSocket "ws://localhost:8080"))
 
+(set! (.-onmessage socket) #(-> % msg->coord draw-circ))
+
 (defn $ [selector]
   (.querySelector js/document (name selector)))
-
-(defn listen [element event callback]
-  (events/listen element (name event) callback))
 
 (def board ($ :#board))
 
@@ -17,6 +16,9 @@
     (.arc x y d 0 (* 2 Math/PI))
     .closePath
     .fill))
+
+(defn draw-circ [[x y]]
+  (-> board (.getContext "2d") (circ x y 5)))
 
 (def buttons
   {goog.events.BrowserEvent.MouseButton/LEFT   :left
@@ -28,9 +30,6 @@
 (defn pressed? [button]
   (@pressed-buttons button))
 
-(defn draw-circ [[x y]]
-  (-> board (.getContext "2d") (circ x y 5)))
-
 (defn mouse-move-callback [event]
   (let [x (.-clientX event)
         y (.-clientY event)]
@@ -39,14 +38,14 @@
       (draw-circ [x y]))))
 
 (defn button-event-callback [f event]
-  (->> (.-button event) buttons
-       (swap! pressed-buttons f)))
+  (->> event .-button buttons (swap! pressed-buttons f)))
 
 (defn msg->coord [message]
   (let [[x y] (.split (.-data message) ",")]
     [(js/parseInt x) (js/parseInt y)]))
 
-(set! (.-onmessage socket) #(-> % msg->coord draw-circ))
+(defn listen [element event callback]
+  (events/listen element (name event) callback))
 
 (listen board (name :mousemove) mouse-move-callback)
 

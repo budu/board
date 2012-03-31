@@ -1,5 +1,5 @@
 (ns board.core
-  (:use (lamina [core :exclude [restart]])
+  (:use lamina.core
         aleph.http
         (ring.middleware resource file-info)
         (hiccup core page)))
