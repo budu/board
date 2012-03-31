@@ -1,0 +1,8 @@
+/pom.xml
+*jar
+/lib
+/classes
+/native
+/checkouts
+/.lein*
+/resources/public/js/app.js
