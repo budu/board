@@ -11,6 +11,8 @@ lein cljsbuild once
 lein run
 ```
 
+The server should be located at http://localhost:8080
+
 ## License
 
 Copyright (C) 2012 Nicolas Buduroi
