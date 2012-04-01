@@ -6,6 +6,8 @@ hundred lines of Clojure and ClojureScript code.
 ## Usage
 
 ```
+lein deps
+lein cljsbuild once
 lein run
 ```
 
