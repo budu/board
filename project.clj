@@ -5,7 +5,7 @@
                  [ring "1.1.0-beta2"]
                  [hiccup "1.0.0-beta1"]
                  [org.clojure/clojurescript "0.0-1006"]]
-  :source-path "src/clj"
+  :source-paths ["src/clj"]
   :extra-classpath-dirs ["src/cljs"]
   :plugins [[lein-cljsbuild "0.1.5"]]
   :cljsbuild {:builds
